@@ -1,16 +1,16 @@
 ###Phenoflow analysis  Batch-experiments    SGPI-data
-
+setwd("/media/projects2/LisaM/Batch_Experiments/Batch_Experiments")
 # install packages & load libraries
-install.packages("ggplot2")
-install.packages('dplyr')
-install.packages('tidyr')
+#install.packages("ggplot2")
+#install.packages('dplyr')
+#install.packages('tidyr')
 
 library(dplyr)
 library(ggplot2)
 library(scales)
 library(tidyr)
 
-install_github("rprops/Phenoflow_package")
+#install_github("rprops/Phenoflow_package")
 
 library("Phenoflow") # for fingerprinting
 library("flowViz") # for plotting
@@ -75,7 +75,7 @@ xyplot(`FL3-H` ~ `FL1-H`, data=flowData_transformed[31], filter=polyGate3,
 flowData_transformed <- Subset(flowData_transformed, polyGate3)
 
 ### Extract metadata from sample names
-metadata <- data.frame(do.call(rbind, lapply(strsplit(flowCore::sampleNames(flowData_transformed),"-", rbind))))
+metadata <- data.frame(do.call(rbind, lapply(strsplit(flowCore::sampleNames(flowData_transformed),"-"), rbind)))
 colnames(metadata) <- c("Emulsifier", "EM_Conc", "Dilution", "Timepoint", "Donor")
 
 
@@ -205,7 +205,8 @@ xyplot(`FL3-H` ~ `FL1-H`, data=flowData_transformed[31], filter=polyGate3,
 flowData_transformed <- Subset(flowData_transformed, polyGate3)
 
 ### Extract metadata from sample names
-metadata <- data.frame(do.call(rbind, lapply(strsplit(flowCore::sampleNames(flowData_transformed),"-", rbind))))
+metadata <- data.frame(do.call(rbind, lapply(strsplit(flowCore::sampleNames(flowData_transformed),"-"), rbind)))
+#metadata <- data.frame(do.call(rbind, lapply(strsplit(flowCore::sampleNames(flowData_transformed),"-", rbind))))
 colnames(metadata) <- c("Emulsifier", "EM_Conc", "Dilution", "Timepoint", "Donor")
 
 
