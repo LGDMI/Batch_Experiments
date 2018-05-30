@@ -18,6 +18,7 @@ library(ggplot2)
 library(scales)
 library(tidyr)
 library(pwr)
+library(readxl)
 
 set.seed(2)
 
@@ -28,7 +29,9 @@ set.seed(2)
 ###Statistics will be performed on Live/dead ratio's and/or liver percentages
 
 ### read-in data from raw data excel ###
-data.cells = read.csv2('SGPI_All_Donors.csv', header= TRUE)
+#data.cells <- read.csv2('SGPI_All_Donors.csv', header= TRUE)
+data.cells <- readxl::read_xlsx("SGPI_All_Donors.xlsx",
+                                sheet = "Overview_Cellcounts")
 #data.cells<- na.omit(data.cells)
 
 
